@@ -1,16 +1,57 @@
-# React + Vite
+# Movie App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and elegant movie search application built with React, Vite, and Tailwind CSS. This application allows users to search for movies using the OMDb API and view the search results in a clean and modern interface.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   **Movie Search:** Search for movies by title.
+-   **Real-time Search:** The application uses a debounce function to search for movies as you type.
+-   **Loading and Error States:** The application displays loading and error messages to the user.
+-   **Responsive Design:** The application is fully responsive and works on all screen sizes.
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+-   [React](https://reactjs.org/)
+-   [Vite](https://vitejs.dev/)
+-   [Tailwind CSS](https://tailwindcss.com/)
+-   [OMDb API](http://www.omdbapi.com/)
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+-   Node.js
+-   npm
+
+### Installation
+
+1.  Clone the repo
+    ```sh
+    git clone https://github.com/your_username/movie-app.git
+    ```
+2.  Install NPM packages
+    ```sh
+    npm install
+    ```
+3.  Create a `.env` file in the root of the project and add your OMDb API key.
+    ```
+    VITE_OMDb_API_KEY=your_api_key
+    ```
+4.  Start the development server
+    ```sh
+    npm run dev
+    ```
+
+## Live Demo
+
+[Link to live demo]()
+
+## Screenshots
+
+![Screenshot of the application](./public/hero.png)
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
