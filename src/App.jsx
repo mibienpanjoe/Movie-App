@@ -1,10 +1,11 @@
-import React from 'react'
-import Search from './components/Search' ;
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Search from './components/Search';
 import MovieCard from './components/MovieCard';
-import {useState , useEffect} from "react";
+import MovieDetails from './components/MovieDetails';
+import { useState, useEffect } from "react";
 
-const API_BASE_URL = "http://www.omdbapi.com/" ;
-
+const API_BASE_URL = "http://www.omdbapi.com/";
 const API_KEY = import.meta.env.VITE_OMDb_API_KEY;
 
 const App = () => {
@@ -12,7 +13,6 @@ const App = () => {
     const [movies, setMovies] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
     const [loading, setLoading] = useState(false);
-
 
     const fetchMovies = async (searchTerm) => {
         if (!searchTerm || searchTerm.trim() === '') {
@@ -51,56 +51,62 @@ const App = () => {
 
         return () => clearTimeout(delayDebounce);
     }, [search]);
+
     return (
         <main>
+            <Routes>
+                <Route path="/" element={
+                    <div className="pattern">
+                        <div className="wrapper">
+                            <header>
+                                <img src="/hero.png" alt="Hero Banner" />
+                                <h1>Find Your Favorite <span className="text-gradient">Movies</span></h1>
+                                <Search search={search} setSearch={setSearch} />
+                            </header>
 
-            <div className="pattern">
-                <div className="wrapper">
-                    <header>
-                        <img src="./hero.png" alt="Hero Banner" />
-                        <h1>Find Your Favorite <span className="text-gradient" >Movies</span> </h1>
-                        <Search search={search} setSearch={setSearch} />
-                    </header>
+                            <section className="all-movies">
+                                <h2>
+                                    {search ? `Search Results for "${search}"` : 'All Movies'}
+                                </h2>
 
-                    <section className="all-movies">
-                        <h2>
-                            {search ? `Search Results for "${search}"` : 'All Movies'}
-                        </h2>
+                                {loading && (
+                                    <div className="loading">
+                                        <p>Loading movies...</p>
+                                    </div>
+                                )}
 
-                        {loading && (
-                            <div className="loading">
-                                <p>Loading movies...</p>
-                            </div>
-                        )}
+                                {errorMessage && (
+                                    <div className="error-message">
+                                        <p>{errorMessage}</p>
+                                    </div>
+                                )}
 
-                        {errorMessage && (
-                            <div className="error-message">
-                                <p>{errorMessage}</p>
-                            </div>
-                        )}
+                                {!loading && !errorMessage && movies.length === 0 && search && (
+                                    <div className="no-movies">
+                                        <img src="/no-movie.png" alt="No movies found" />
+                                        <p>No movies found. Try a different search term.</p>
+                                    </div>
+                                )}
 
-                        {!loading && !errorMessage && movies.length === 0 && search && (
-                            <div className="no-movies">
-                                <img src="/no-movie.png" alt="No movies found" />
-                                <p>No movies found. Try a different search term.</p>
-                            </div>
-                        )}
+                                {!loading && !errorMessage && movies.length === 0 && !search && (
+                                    <div className="no-movies">
+                                        <p>Start searching for your favorite movies!</p>
+                                    </div>
+                                )}
 
-                        {!loading && !errorMessage && movies.length === 0 && !search && (
-                            <div className="no-movies">
-                                <p>Start searching for your favorite movies!</p>
-                            </div>
-                        )}
-
-                        <div className="movies-grid">
-                            {movies.map((movie) => (
-                                <MovieCard key={movie.imdbID} movie={movie} />
-                            ))}
+                                <div className="movies-grid">
+                                    {movies.map((movie) => (
+                                        <MovieCard key={movie.imdbID} movie={movie} />
+                                    ))}
+                                </div>
+                            </section>
                         </div>
-                    </section>
-                </div>
-            </div>
+                    </div>
+                } />
+                <Route path="/movie/:id" element={<MovieDetails />} />
+            </Routes>
         </main>
     )
 }
-export default App
+
+export default App;

@@ -1,0 +1,58 @@
+.movie-details-container {
+    padding: 2rem;
+    color: #fff;
+}
+
+.movie-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+}
+
+.movie-poster img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.movie-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.movie-info p {
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.genres {
+    margin-bottom: 1rem;
+}
+
+.genre {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    margin-right: 0.5rem;
+}
+
+.rating {
+    margin-bottom: 1rem;
+}
+
+.details-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.back-button {
+    background-color: rgb(31, 100, 143);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
