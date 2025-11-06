@@ -5,7 +5,7 @@ import MovieCard from './components/MovieCard';
 import MovieDetails from './components/MovieDetails';
 import { useState, useEffect } from "react";
 
-const API_BASE_URL = "http://www.omdbapi.com/";
+const API_BASE_URL = "https://www.omdbapi.com/";
 const API_KEY = import.meta.env.VITE_OMDb_API_KEY;
 
 const App = () => {
