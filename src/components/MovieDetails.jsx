@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "./MovieDetails.css";
+import "../MovieDetails.css";
 
 const API_BASE_URL = "http://www.omdbapi.com/";
 const API_KEY = import.meta.env.VITE_OMDb_API_KEY;
